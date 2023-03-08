@@ -1,0 +1,49 @@
+﻿
+@{
+}
+@model Book
+
+    <style>
+
+        button {
+
+            animation-name: example;
+            animation-duration: 10s;
+        }
+
+        @@keyframes example {
+            from {
+                background-color: midnightblue;
+            }
+
+            to {
+                background-color: palegreen;
+            }
+        }
+    </style>
+
+    <div class="card card-outline-primary m-1 p-1">
+        <div class="bg-light p-1">
+            <h4>@Model.Title</h4>
+
+            <span class="badge bg-info" style="float:right; color:white">
+                Category: @Model.Category
+            </span>
+        </div>
+        <ul>
+            <li>Author: @Model.Author</li>
+            <li>Publisher: @Model.Publisher</li>
+            <li>ISBN: @Model.Isbn</li>
+            <li>Classification: @Model.Classification</li>
+            <li>Pages: @Model.PageCount</li>
+            <li>Price: @Model.Price</li>
+        </ul>
+
+        <form method="post" asp-page="/shopping">
+            <input type="hidden" asp-for="@Model.BookId" />
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+            <span class="card-text">
+                <button type="submit" class="btn btn-success btn-group-sm float-end">Add to Cart</button>
+            </span>
+        </form>
+    </div>

@@ -3,22 +3,12 @@
 }
 @model BooksViewModel 
 
-<div class="text-left">
+
+<div>
     <h1 class="display-4">Welcome</h1>
     @foreach (Book b in Model.Books)
     {
-        <h4>@b.Title</h4>
-        <ul style="list-style-type: none; margin: 0; padding: 0;">
-            <li>Title: @b.Title</li>
-            <li>Author: @b.Author</li>
-            <li>Publisher: @b.Publisher</li>
-            <li>ISBN: @b.Isbn</li>
-            <li>Classification: @b.Classification</li>
-            <li>Category: @b.Category</li>
-            <li>Pages: @b.PageCount</li>
-            <li>Price: @b.Price</li>
-        </ul>
-        <br />
+        <partial name="BookSummary" model="b"/>
     }
     <br />
 
