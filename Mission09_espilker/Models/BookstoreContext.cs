@@ -20,6 +20,8 @@ namespace Mission09_espilker.Models
         }
 
         public virtual DbSet<Book> Books { get; set; }
+        public DbSet<Checkout> Checkouts { get; set; }
+  
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
